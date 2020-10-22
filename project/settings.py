@@ -1,5 +1,14 @@
 import os
 from dotenv import load_dotenv
+from environs import Env
+
+env = Env()
+env.read_env()
+
+# Override in .env for local development
+DEBUG = env.bool("DEBUG", default=False)
+# SECRET_KEY is required
+SECRET_KEY = env.str("SECRET_KEY")
 
 load_dotenv()
 
@@ -7,7 +16,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'HOST': os.getenv("DB_HOST"),
-        'PORT': '5434',
+        'PORT': os.getenv("PORT"),
         'NAME': 'checkpoint',
         'USER': os.getenv("DB_USER"),
         'PASSWORD': os.getenv("DB_PASSWORD"),
@@ -16,9 +25,9 @@ DATABASES = {
 
 INSTALLED_APPS = ['datacenter']
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+# SECRET_KEY = os.getenv("SECRET_KEY")
 
-DEBUG = True
+# DEBUG = True
 
 ROOT_URLCONF = "project.urls"
 
