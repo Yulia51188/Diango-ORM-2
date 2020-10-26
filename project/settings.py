@@ -5,9 +5,7 @@ from environs import Env
 env = Env()
 env.read_env()
 
-# Override in .env for local development
 DEBUG = env.bool("DEBUG", default=False)
-# SECRET_KEY is required
 SECRET_KEY = env.str("SECRET_KEY")
 
 load_dotenv()
@@ -24,13 +22,7 @@ DATABASES = {
 }
 
 INSTALLED_APPS = ['datacenter']
-
-# SECRET_KEY = os.getenv("SECRET_KEY")
-
-# DEBUG = True
-
 ROOT_URLCONF = "project.urls"
-
 ALLOWED_HOSTS = ['*']
 
 
