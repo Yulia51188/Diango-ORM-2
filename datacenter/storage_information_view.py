@@ -12,7 +12,6 @@ def format_visit_info(visit):
         "entered_at": localtime(visit.entered_at),
         "duration": visit.get_formatted_duration(),
         "is_active": is_active and "OK" or "Неактивен",
-        # Столкнулась с ситуацией, когда в хранилище посетитель с истекшим пропуском
         "is_strange": is_strange and "Да" or "Нет",
     }
     return visit_info
