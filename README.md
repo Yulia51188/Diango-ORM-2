@@ -5,8 +5,9 @@ Bank security control system is a web-site realized with Django that provides se
 ### How to install
 
 You need to set some keys as environment variable that are:
-- security database information: engine, name, host, port number, username and password as  `DB_ENGINE`, `DB_NAME`,`DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`;
-- secret key as `SECRET_KEY`.
+- security database information must be encoded as url by [dj_database_url](https://github.com/jacobian/dj-database-url#id7) format, for example, `postgres://USER:PASSWORD@HOST:PORT/NAME`;
+- secret key as `SECRET_KEY`,
+- optional `DEBUG` flag for logging, default is False.
 
 Python3 should be already installed. 
 Then use `pip` (or `pip3`, if there is a conflict with Python2) to install dependencies:
